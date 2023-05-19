@@ -10,12 +10,13 @@ namespace WebApplication1.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             //Ottengo i dati dal file
-            string filePath = "C:\\Users\\F.P.S\\Desktop\\Progetto Lavoro\\WebApplication1\\Data\\data.txt";
+            string filePath = "~/Data/data.txt";
+            string physicalPath = Server.MapPath(filePath);
 
-            if (File.Exists(filePath))
+            if (File.Exists(physicalPath))
             {
 
-                GridView1.DataSource = GetDataSource(filePath); //ottengo un oggetto DataTable che funge da origine dati
+                GridView1.DataSource = GetDataSource(physicalPath); //ottengo un oggetto DataTable che funge da origine dati
                 GridView1.DataBind(); //Collego la parte visuale all'origine dati
             }
             else
@@ -49,11 +50,12 @@ namespace WebApplication1.Pages
                     //Aggiunta del file 
 
                     string attachedFileName = list[2];
-                    string attachedFilePath = "C:\\Users\\F.P.S\\Desktop\\Progetto Lavoro\\WebApplication1\\Allegati\\" + attachedFileName;
+                    string attachedFilePath = "~/Allegati/" + attachedFileName;
+                    string physicalAttachedFilePath = Server.MapPath(attachedFilePath);
 
-                    if (File.Exists(attachedFilePath))
+                    if (File.Exists(physicalAttachedFilePath))
                     {
-                        list.Add(Path.GetFileName(attachedFilePath));
+                        list.Add(Path.GetFileName(physicalAttachedFilePath));
                     }
                     else
                     {

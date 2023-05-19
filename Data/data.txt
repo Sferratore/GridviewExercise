@@ -1,7 +1,2 @@
 ﻿Nome,Cognome,NumTel,DataInserimento
 Mario,Rossi,3212345678,18/05/2023
-Antonio,Rossi,3212345678,18/05/2023
-Luigi,Rossi,3212345678,18/05/2023
-Giuseppe,Bianchi,3212354768,18/05/2023
-Francesco Paolo,Sferratore,3248447111,18/05/2023
-Mario,Rossi,AAAAAA,18/05/2023

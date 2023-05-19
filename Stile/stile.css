@@ -61,8 +61,6 @@ footer {
         padding: 0;
     }
 
-
-
 .gridview {
     margin: 0 auto;
     width: 80%;
@@ -82,7 +80,6 @@ footer {
     .gridview tr:nth-child(even) {
         background-color: #f2f2f2;
     }
-
 
     .gridview tr:hover {
         background-color: #ddd;

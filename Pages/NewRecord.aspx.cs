@@ -15,18 +15,20 @@ namespace WebApplication1.Pages
             string nome = NomeTextBox.Text;
             string cognome = CognomeTextBox.Text;
             string numero = NumTextBox.Text;
-            string dataFilePath = "C:\\Users\\F.P.S\\Desktop\\Progetto Lavoro\\WebApplication1\\Data\\data.txt";
-            string uploadFilePath = "C:\\Users\\F.P.S\\Desktop\\Progetto Lavoro\\WebApplication1\\Allegati";
+            string dataFilePath = "~/Data/data.txt";
+            string uploadFilePath = "~/Allegati/";
+            string physicalDataFilePath = Server.MapPath(dataFilePath);
+            string physicalUploadFilePath = Server.MapPath(uploadFilePath);
             string savePath;
 
-            using (StreamWriter writer = new StreamWriter(dataFilePath, true))
+            using (StreamWriter writer = new StreamWriter(physicalDataFilePath, true))
             {
                 writer.WriteLine(nome + "," + cognome + "," + numero + "," + DateTime.Now.ToShortDateString());
             }
 
             if (FileUpload.PostedFile != null)
             {
-                savePath = uploadFilePath + "\\" + numero;
+                savePath = physicalUploadFilePath + "\\" + numero;
                 FileUpload.PostedFile.SaveAs(savePath);
             }
 
