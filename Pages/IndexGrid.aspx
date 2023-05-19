@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <title>GridView</title>
     <link rel="stylesheet" type="text/css" href="../Stile/stile.css">
@@ -16,13 +16,20 @@
                 <asp:BoundField DataField="Nome" HeaderText="Nome" />
                 <asp:BoundField DataField="Cognome" HeaderText="Cognome" />
                 <asp:BoundField DataField="NumTel" HeaderText="NumTel" />
+                <asp:BoundField DataField="File" HeaderText="File" />
+                <asp:HyperLinkField HeaderText="Download" Text="Download"
+                    DataNavigateUrlFields="File"
+                    DataNavigateUrlFormatString="Download.aspx?file={0}"
+                    ItemStyle-CssClass="downloadColumn"
+                    HeaderStyle-CssClass="downloadColumn" />
+
             </Columns>
         </asp:GridView>
 
-        <asp:Button ID="Button1" runat="server" Text="Aggiungi un nuovo record" OnClick="Button1_Click" CssClass="newRecordButton"/>
+        <asp:Button ID="Button1" runat="server" Text="Aggiungi un nuovo record" OnClick="Button1_Click" CssClass="newRecordButton" />
     </form>
 
-    
+
 
     <asp:Label ID="lblErrorMessage" runat="server" Text=""></asp:Label>
 </body>

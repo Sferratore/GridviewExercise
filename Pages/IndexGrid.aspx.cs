@@ -38,11 +38,29 @@ namespace WebApplication1.Pages
                         dataTable.Columns.Add(header);
                 }
 
+                dataTable.Columns.Add("File");  //Aggiungo colonna non inclusa in data.txt
+
                 for (int i = 1; i < lines.Length; i++)  //Aggiungo i dati rimanenti
                 {
                     string[] values = lines[i].Split(',');
                     List<string> list = new List<string>(values); //Converto in stringa per rimuovere totalmente la data inserimento
                     list.RemoveAt(3);
+
+                    //Aggiunta del file 
+
+                    string attachedFileName = list[2];
+                    string attachedFilePath = "C:\\Users\\F.P.S\\Desktop\\Progetto Lavoro\\WebApplication1\\Allegati\\" + attachedFileName;
+
+                    if (File.Exists(attachedFilePath))
+                    {
+                        list.Add(Path.GetFileName(attachedFilePath));
+                    }
+                    else
+                    {
+                        list.Add("Nessun file caricato");
+                    }
+
+
 
                     dataTable.Rows.Add(list.ToArray());
 

@@ -21,14 +21,14 @@ header {
     margin-bottom: 20px;
 }
 
-header h1 {
-    margin: 0;
-    padding: 0;
-}
+    header h1 {
+        margin: 0;
+        padding: 0;
+    }
 
 h2 {
-    margin:5%;
-    padding:2%;
+    margin: 5%;
+    padding: 2%;
 }
 
 nav ul {
@@ -36,15 +36,15 @@ nav ul {
     padding: 0;
 }
 
-nav ul li {
-    display: inline-block;
-    margin-right: 10px;
-}
+    nav ul li {
+        display: inline-block;
+        margin-right: 10px;
+    }
 
-nav ul li a {
-    text-decoration: none;
-    color: #3498db;
-}
+        nav ul li a {
+            text-decoration: none;
+            color: #3498db;
+        }
 
 footer {
     background-color: #3498db;
@@ -56,76 +56,76 @@ footer {
     width: 100%;
 }
 
-footer p {
-    margin: 0;
-    padding: 0;
-}
+    footer p {
+        margin: 0;
+        padding: 0;
+    }
 
 
 
 .gridview {
-    margin: 0 auto; 
-    width: 80%; 
+    margin: 0 auto;
+    width: 80%;
     border-collapse: collapse;
 }
 
-.gridview th, .gridview td {
-    border: 1px solid #ddd; 
-    padding: 8px; 
-}
+    .gridview th, .gridview td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
 
-.gridview th {
-    background-color: #3498db;
-    color: white; 
-}
+    .gridview th {
+        background-color: #3498db;
+        color: white;
+    }
 
-.gridview tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-    
+    .gridview tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 
-.gridview tr:hover {
-    background-color: #ddd;
 
-}
+    .gridview tr:hover {
+        background-color: #ddd;
+    }
 
 .newRecordButton {
     margin: 2%;
     float: right;
-    padding:0.5%;
+    padding: 0.5%;
     background-color: lightgray;
 }
 
 form {
     width: 100%;
-    max-width: 400px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    overflow-x: auto;
 }
 
-form label {
-    display: block;
-    margin-bottom: 10px;
-}
+    form label {
+        display: block;
+        margin-bottom: 10px;
+    }
 
-form input[type="text"], form input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
+    form input[type="text"], form input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
 
-form button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
+    form button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #007BFF;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-form button:hover {
-    background-color: #0056b3;
-}
+        form button:hover {
+            background-color: #0056b3;
+        }

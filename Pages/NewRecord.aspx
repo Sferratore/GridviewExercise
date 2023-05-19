@@ -22,6 +22,8 @@
             <asp:Label ID="NumLabel" runat="server" Text="Numero di Telefono:"></asp:Label>
             <asp:TextBox ID="NumTextBox" runat="server"></asp:TextBox>
         </div>
+
+        <asp:FileUpload ID="FileUpload" runat="server" />
         <asp:Button ID="SubmitButton" runat="server" Text="Invia" OnClick="SubmitButton_Click" />
     </form>
 

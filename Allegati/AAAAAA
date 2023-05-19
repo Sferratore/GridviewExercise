@@ -1,0 +1,7 @@
+BUGS PROGETTO:
+-RICORDATI DI CORREGGERE CODICE, COMMENTI e LOG INUTILI.
+-compito e baseline sullo stesso punto quando uguali, non si vede baseline
+-numero caricamenti <2 esplode il grafico
+-aggiungere visualizzazione 3D
+-sostituire codice sessione con nome inserito
+-enhanchement sistema autenticazione

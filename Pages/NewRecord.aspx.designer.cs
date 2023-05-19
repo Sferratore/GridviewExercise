@@ -78,6 +78,15 @@ namespace WebApplication1.Pages
         protected global::System.Web.UI.WebControls.TextBox NumTextBox;
 
         /// <summary>
+        /// Controllo FileUpload.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload;
+
+        /// <summary>
         /// Controllo SubmitButton.
         /// </summary>
         /// <remarks>
