@@ -71,6 +71,7 @@
     <Content Include="Pages\IndexGrid.aspx" />
     <Content Include="Data\data.txt" />
     <Content Include="Pages\NewRecord.aspx" />
+    <Content Include="Pages\UpdateRecord.aspx" />
     <Content Include="Stile\stile.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -95,6 +96,13 @@
     </Compile>
     <Compile Include="Pages\NewRecord.aspx.designer.cs">
       <DependentUpon>NewRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdateRecord.aspx.cs">
+      <DependentUpon>UpdateRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UpdateRecord.aspx.designer.cs">
+      <DependentUpon>UpdateRecord.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

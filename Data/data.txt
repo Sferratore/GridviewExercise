@@ -1,2 +1,2 @@
-﻿Nome,Cognome,NumTel,DataInserimento
-Mario,Rossi,3212345678,18/05/2023
+ID,Nome,Cognome,NumTel,DataInserimento,File
+fa7715a6-6681-40ef-b9c6-d35996366e1e,Nduja,Cognome qualunque,33344556666,24/05/2023,Nduja_4144affa-f762-4f2f-9e2f-69faf5e63fe7

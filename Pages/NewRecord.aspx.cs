@@ -20,15 +20,16 @@ namespace WebApplication1.Pages
             string physicalDataFilePath = Server.MapPath(dataFilePath);
             string physicalUploadFilePath = Server.MapPath(uploadFilePath);
             string savePath;
+            string newfilename = nome + "_" + Guid.NewGuid().ToString();
 
             using (StreamWriter writer = new StreamWriter(physicalDataFilePath, true))
             {
-                writer.WriteLine(nome + "," + cognome + "," + numero + "," + DateTime.Now.ToShortDateString());
+                writer.WriteLine(Guid.NewGuid().ToString() + "," + nome + "," + cognome + "," + numero + "," + DateTime.Now.ToShortDateString() + "," + newfilename);
             }
 
             if (FileUpload.PostedFile != null)
             {
-                savePath = physicalUploadFilePath + "\\" + numero;
+                savePath = physicalUploadFilePath + "\\" + newfilename;
                 FileUpload.PostedFile.SaveAs(savePath);
             }
 

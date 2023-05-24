@@ -11,8 +11,9 @@
 <body>
     <h2>Gridview Exercise</h2>
     <form id="form1" runat="server">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="gridview">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" onrowdatabound="ElencoGridView_RowDataBound" OnRowCommand="GridView_RowCommand" CssClass="gridview">
             <Columns>
+                <asp:BoundField DataField="ID" HeaderText="ID" />
                 <asp:BoundField DataField="Nome" HeaderText="Nome" />
                 <asp:BoundField DataField="Cognome" HeaderText="Cognome" />
                 <asp:BoundField DataField="NumTel" HeaderText="NumTel" />
@@ -22,7 +23,8 @@
                     DataNavigateUrlFormatString="Download.aspx?file={0}"
                     ItemStyle-CssClass="downloadColumn"
                     HeaderStyle-CssClass="downloadColumn" />
-
+                <asp:ButtonField Text="Modifica" CommandName="ModificaRecord" ButtonType="Button" />
+                <asp:ButtonField Text="Elimina" CommandName="EliminaRecord" ButtonType="Button" />
             </Columns>
         </asp:GridView>
 

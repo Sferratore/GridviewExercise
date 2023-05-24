@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Web.UI.WebControls;
 
 namespace WebApplication1.Pages
 {
@@ -39,31 +40,20 @@ namespace WebApplication1.Pages
                         dataTable.Columns.Add(header);
                 }
 
-                dataTable.Columns.Add("File");  //Aggiungo colonna non inclusa in data.txt
-
                 for (int i = 1; i < lines.Length; i++)  //Aggiungo i dati rimanenti
                 {
                     string[] values = lines[i].Split(',');
                     List<string> list = new List<string>(values); //Converto in stringa per rimuovere totalmente la data inserimento
-                    list.RemoveAt(3);
+                    list.RemoveAt(4);
 
                     //Aggiunta del file 
 
-                    string attachedFileName = list[2];
-                    string attachedFilePath = "~/Allegati/" + attachedFileName;
-                    string physicalAttachedFilePath = Server.MapPath(attachedFilePath);
-
-                    if (File.Exists(physicalAttachedFilePath))
+                    string attachedFileName = list[4];
+                    if (list[3] != "Nessun file caricato")
                     {
-                        list.Add(Path.GetFileName(physicalAttachedFilePath));
+                        string attachedFilePath = "~/Allegati/" + attachedFileName;
+                        string physicalAttachedFilePath = Server.MapPath(attachedFilePath);
                     }
-                    else
-                    {
-                        list.Add("Nessun file caricato");
-                    }
-
-
-
                     dataTable.Rows.Add(list.ToArray());
 
                 }
@@ -75,6 +65,57 @@ namespace WebApplication1.Pages
         public void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("NewRecord.aspx");
+        }
+
+        protected void ElencoGridView_RowDataBound(Object sender, GridViewRowEventArgs e)
+        {
+
+            if (e.Row.Cells[3].Text == "Nessun file caricato")
+            {
+                e.Row.Cells[4].Text = "";
+            }
+
+        }
+
+        protected void GridView_RowCommand(object sender, GridViewCommandEventArgs e) 
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            if(e.CommandName == "ModificaRecord")
+            {
+                GridViewRow row = GridView1.Rows[rowIndex];
+                string rowId = row.Cells[0].Text;
+                Session["rowId"] = rowId;
+
+                Response.Redirect("UpdateRecord.aspx");
+            }
+            if(e.CommandName == "EliminaRecord")
+            {
+                string filePath = "~/Data/data.txt";
+                string physicalPath = Server.MapPath(filePath);
+
+                if (File.Exists(physicalPath))
+                {
+                    string[] lines = File.ReadAllLines(physicalPath);
+                    File.WriteAllText(physicalPath, string.Empty);
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        string[] values = lines[i].Split(',');
+                        if (values[0] == GridView1.Rows[rowIndex].Cells[0].Text)
+                        {
+                            break;
+                        }
+                        using (StreamWriter writer = new StreamWriter(physicalPath, true))
+                        {
+                            writer.WriteLine(lines[i]);
+                        }
+                    }
+                    Response.Redirect("IndexGrid.aspx");
+                }
+                else
+                {
+                    lblErrorMessage.Text = "Il file data.txt non esiste.";
+                }
+            }
         }
     }
 }
